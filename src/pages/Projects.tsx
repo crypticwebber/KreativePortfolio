@@ -129,13 +129,13 @@ export default function Projects() {
     </div>
   );
 
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  // const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const move = (e: MouseEvent) => setMouse({ x: e.clientX, y: e.clientY });
-    window.addEventListener("mousemove", move);
+    // const move = (e: MouseEvent) => setMouse({ x: e.clientX, y: e.clientY });
+    // window.addEventListener("mousemove", move);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -147,7 +147,7 @@ export default function Projects() {
     if (ref.current) observer.observe(ref.current);
 
     return () => {
-      window.removeEventListener("mousemove", move);
+      // window.removeEventListener("mousemove", move);
       observer.disconnect();
     };
   }, []);
@@ -155,16 +155,13 @@ export default function Projects() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen bg-black text-white px-6 md:px-18 lg:px-25 py-32  overflow-hidden"
+      className="relative min-h-screen bg-black text-white px-6 md:px-12 lg:px-24 py-32  overflow-x-hidden"
     >
       {/* Mouse Glow */}
-      <div
-        className="absolute w-100 h-100 rounded-full blur-[120px] bg-white/10 pointer-events-none transition-transform duration-300"
-        style={{
-          left: mouse.x - 200,
-          top: mouse.y - 200,
-        }}
-      />
+      {/* <div
+        className="absolute w-[400px] h-[400px] rounded-full blur-[120px] ..."
+        style={{ left: mouse.x - 200, top: mouse.y - 200 }}
+      /> */}
       {/* Background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[80px_80px]" />
 
@@ -194,7 +191,7 @@ export default function Projects() {
         <h3 className="mt-10 text-2xl font-semibold mb-6">
           {/* Design Projects (Behance) */}
         </h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="w-full group relative grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects
             .filter((p) => p.type === "Design")
             .map((project, i) => (
