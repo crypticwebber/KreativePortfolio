@@ -20,7 +20,7 @@ export default function Navbar() {
             to="/"
             className="text-xl font-semibold tracking-tight text-white hover:opacity-80 transition"
           >
-            <img src="/logo.png" alt="" className="h-5 w-auto" />
+            <img src="/logo.png" alt="" className="h-auto w-20" />
           </Link>
 
           {/* Desktop Links */}
