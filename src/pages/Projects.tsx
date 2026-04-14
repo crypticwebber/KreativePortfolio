@@ -141,7 +141,7 @@ export default function Projects() {
       ([entry]) => {
         if (entry.isIntersecting) setVisible(true);
       },
-      { threshold: 0.3 },
+      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" },
     );
 
     if (ref.current) observer.observe(ref.current);
